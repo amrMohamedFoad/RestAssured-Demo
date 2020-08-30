@@ -1,4 +1,4 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;// to use RestAssured functions directly without saying REstAssured.functionname()
 import static org.hamcrest.Matchers.*;
 
