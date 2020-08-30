@@ -27,9 +27,9 @@ public class Tests_POST {
                 .log().all();
     }
 
-    //PUT Request to add new user
+    //PUT Request to update user
     @Test
-    public void updateUser(){
+    public void updateUser_PUT(){
 
         JSONObject body = new JSONObject();
         body.put("name", "Amr Mohamed");
@@ -40,6 +40,25 @@ public class Tests_POST {
                 .body(body.toJSONString())
         .when()
                 .put("https://reqres.in/api/users/2")
+        .then()
+                .statusCode(200)
+                .log().all();
+    }
+
+
+    //Patch Request to update user
+    @Test
+    public void updateUser_PATCH(){
+
+        JSONObject body = new JSONObject();
+        body.put("name", "Amr Mohamed");
+        body.put("job", "Backend Developer");
+
+        given()
+                .header("Content-Type", "application/json")
+                .body(body.toJSONString())
+        .when()
+                .patch("https://reqres.in/api/users/2")
         .then()
                 .statusCode(200)
                 .log().all();
