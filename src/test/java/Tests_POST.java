@@ -19,9 +19,9 @@ public class Tests_POST {
         body.put("job", "Software Developer");
 
         given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
                 .header("Content-Type", "application/json")
-               //.contentType(ContentType.JSON)
-               //.accept(ContentType.JSON)
                 .body(body.toJSONString())
         .when()
                 .post("https://reqres.in/api/users")
@@ -40,6 +40,8 @@ public class Tests_POST {
         body.put("job", "Backend Developer");
 
         given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
                 .header("Content-Type", "application/json")
                 .body(body.toJSONString())
         .when()
@@ -60,6 +62,8 @@ public class Tests_POST {
         body.put("job", "Software Developer");
 
         given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
                 .header("Content-Type", "application/json")
                 .body(body.toJSONString())
         .when()
