@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.*;
 
 public class Tests_POST {
 
+    //Post Request to add new user
     @Test
     public void createUser(){
 
@@ -19,9 +20,28 @@ public class Tests_POST {
                //.contentType(ContentType.JSON)
                //.accept(ContentType.JSON)
                 .body(body.toJSONString())
+        .when()
                 .post("https://reqres.in/api/users")
-                .then()
+        .then()
                 .statusCode(201)
+                .log().all();
+    }
+
+    //PUT Request to add new user
+    @Test
+    public void updateUser(){
+
+        JSONObject body = new JSONObject();
+        body.put("name", "Amr Mohamed");
+        body.put("job", "Backend Developer");
+
+        given()
+                .header("Content-Type", "application/json")
+                .body(body.toJSONString())
+        .when()
+                .put("https://reqres.in/api/users/2")
+        .then()
+                .statusCode(200)
                 .log().all();
     }
 }
